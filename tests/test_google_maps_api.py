@@ -21,3 +21,30 @@ class Test_google_maps_methods():
         result_get: Response = Google_map_api.get_new_place(place_id)
         check_request = result_get.json()
         print(check_request)
+
+        """Отправка PUT запроса"""
+        print("Method PUT")
+        result_put: Response = Google_map_api.update_new_place(place_id)
+        check_request = result_put.json()
+        print(check_request)
+        if check_request.get("msg") == "Address successfully updated":
+            assert True
+            print("Тест PASSED! Локация успешно изменена")
+        else:
+            assert False
+            print("Тест FAILED! Локация не изменена")
+
+        """Проверка изменения локации методом GET"""
+        print("Method GET")
+        result_get: Response = Google_map_api.get_new_place(place_id)
+        check_request = result_get.json()
+        print(check_request)
+        if check_request.get("address") == "100 Lenina test PUT street, RU":
+            assert True
+            print("Тест PASSED! Локация успешно изменена")
+        else:
+            assert False
+            print("Тест FAILED! Локация не изменена")
+
+        """Отправка DELETE запроса"""
+

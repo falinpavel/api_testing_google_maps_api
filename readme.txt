@@ -1,6 +1,6 @@
-#Документация Google Map API
+Документация Google Map API
 
-##Метод POST
+Метод POST
 Запрос:
 Base URL: https://rahulshettyacademy.com
 Resource: /maps/api/place/add/json
@@ -33,7 +33,7 @@ Body:
 }
 
 
-##Метод GET
+Метод GET
 Base URL: https://rahulshettyacademy.com
 Resource: /maps/api/place/get/json
 Параметр для запросов: key =qaclick123, place_id
@@ -59,7 +59,7 @@ Resource: /maps/api/place/get/json
     "msg": "Get operation failed, looks like place_id  doesn't exists"
 }
 
-##Метод PUT
+Метод PUT
 Запрос:
 Base URL: https://rahulshettyacademy.com
 Resource: /maps/api/place/update/json
@@ -83,7 +83,7 @@ Body:
 }
 
 
-##Метод DELETE
+Метод DELETE
 Запрос:
 Base URL: https://rahulshettyacademy.com
 Resource: /maps/api/place/delete/json

@@ -32,6 +32,7 @@ class Google_map_api():
         print(result_post.text)
         return result_post
 
+    """Метод для получения локации"""
     @staticmethod
     def get_new_place(place_id):
         get_resources = "/maps/api/place/get/json"
@@ -40,3 +41,18 @@ class Google_map_api():
         result_get = HttpAllMethods.get(get_url)
         print(result_get.text)
         return result_get
+
+    """Метод для изменения ранее созданной локации"""
+    @staticmethod
+    def update_new_place(place_id):
+        put_resources = "/maps/api/place/update/json"
+        put_url = BASE_URL + put_resources + KEY
+        print("URL для PUT запроса: " + put_url)
+        json_update_new_place = {
+            "place_id": place_id,
+            "address": "100 Lenina test PUT street, RU",
+            "key": "qaclick123"
+        }
+        result_put = HttpAllMethods.put(put_url, json_update_new_place)
+        print(result_put.text)
+        return result_put
