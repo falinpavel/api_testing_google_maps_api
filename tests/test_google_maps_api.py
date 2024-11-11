@@ -89,5 +89,6 @@ class Test_google_maps_methods():  # тестирование методов Goo
                                                 ["msg"])
         CheckingResponses.check_field_value(result_get,
                                             "msg", "Get operation failed, looks like place_id  doesn't exists")
+        CheckingResponses.check_word_in_response(result_get, "msg", "failed")
 
         print("Test create new place completed (POST -> GET -> PUT -> GET -> DELETE -> GET)")
