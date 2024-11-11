@@ -1,8 +1,8 @@
-import pytest
-import requests
-from requests import Response
-from utils.checking_responses import CheckingResponses
-from utils.api import Google_map_api
+import pytest # для запуска тестов
+import requests # для отправки запросов
+from requests import Response # для получения статус кода
+from utils.checking_responses import CheckingResponses # кастомный метод для проверки статус кода
+from utils.api import Google_map_api # импортируем модуль с методами HTTP
 
 """
 This module contains tests for Google map API and extends all methods from utils/api.py module
@@ -10,7 +10,7 @@ For run tests use command: pytest -v -s
 """
 
 
-class Test_google_maps_methods():
+class Test_google_maps_methods(): # тестирование методов Google map API, у класса нет атрибутов так как все методы статические
     def test_create_new_place(self):
 
         """Sending POST request"""

@@ -1,13 +1,14 @@
-from utils.http_all_methods import HttpAllMethods
+from utils.http_all_methods import HttpAllMethods # импортируем модуль с методами HTTP
 
 """All methods for testing Google map API"""
 
 BASE_URL = "https://rahulshettyacademy.com" # для всех запросов
 KEY = "?key=qaclick123" # ключ для всех запросов
 
+"""Create calss for testing Google map API"""
 class Google_map_api():
 
-    """This method creates new location, returns ID of created location"""
+    """This method creates new location, returns ID of created location (POST)"""
     @staticmethod
     def create_new_place():
         json_create_new_place = {
@@ -28,27 +29,27 @@ class Google_map_api():
         }
         post_resources = "/maps/api/place/add/json"
         post_url = BASE_URL + post_resources + KEY
-        print("URL для POST запроса: " + post_url)
+        print("URL for POST request: " + post_url)
         result_post = HttpAllMethods.post(post_url, json_create_new_place)
         print(result_post.text)
         return result_post
 
-    """Метод для получения локации"""
+    """Method for getting ID of created location (GET)"""
     @staticmethod
     def get_new_place(place_id):
         get_resources = "/maps/api/place/get/json"
         get_url = BASE_URL + get_resources + KEY + "&place_id=" + place_id
-        print("URL для GET запроса: " + get_url)
+        print("URL for GET request: " + get_url)
         result_get = HttpAllMethods.get(get_url)
         print(result_get.text)
         return result_get
 
-    """Метод для изменения ранее созданной локации"""
+    """Method for updating created location (PUT)"""
     @staticmethod
     def update_new_place(place_id):
         put_resources = "/maps/api/place/update/json"
         put_url = BASE_URL + put_resources + KEY
-        print("URL для PUT запроса: " + put_url)
+        print("URL for PUT request: " + put_url)
         json_update_new_place = {
             "place_id": place_id,
             "address": "100 Lenina test PUT street, RU",
@@ -58,7 +59,7 @@ class Google_map_api():
         print(result_put.text)
         return result_put
 
-    """Метод для удаления ранее созданной локации"""
+    """Method for deleting created location (DELETE)"""
     @staticmethod
     def delete_new_place(place_id):
         delete_resources = "/maps/api/place/delete/json"
