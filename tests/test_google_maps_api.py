@@ -9,7 +9,6 @@ This module contains tests for Google map API and extends all methods from utils
 For run tests use command: pytest -v -s
 """
 
-
 class Test_google_maps_methods(): # тестирование методов Google map API, у класса нет атрибутов так как все методы статические
     def test_create_new_place(self):
 
