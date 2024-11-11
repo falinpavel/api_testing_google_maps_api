@@ -1,0 +1,45 @@
+Method POST
+URL for POST request: https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+ID created place: b4307367596b6f708cd705f24af9d661
+Test status code PASSED! Fact received status code: 200
+Test required fields PASSED! Fact received required fields: ['status', 'place_id', 'scope', 'reference', 'id']
+Test field value PASSED! Fact received field value: OK
+Test field value PASSED! Fact received field value: APP
+Method GET
+URL for GET request: https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b4307367596b6f708cd705f24af9d661
+{'location': {'latitude': '-38.383494', 'longitude': '33.427362'}, 'accuracy': '50', 'name': 'Frontline house', 'phone_number': '(+91) 983 893 3937', 'address': '29, side layout, cohen 09', 'types': 'shoe park,shop', 'website': 'http://google.com', 'language': 'French-IN'}
+Test status code PASSED! Fact received status code: 200
+Test required fields PASSED! Fact received required fields: ['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website', 'language']
+Test field value PASSED! Fact received field value: 50
+Test field value PASSED! Fact received field value: Frontline house
+Test field value PASSED! Fact received field value: (+91) 983 893 3937
+Test field value PASSED! Fact received field value: 29, side layout, cohen 09
+Test field value PASSED! Fact received field value: shoe park,shop
+Test field value PASSED! Fact received field value: http://google.com
+Test field value PASSED! Fact received field value: French-IN
+Method PUT
+URL for PUT request: https://rahulshettyacademy.com/maps/api/place/update/json?key=qaclick123
+{'msg': 'Address successfully updated'}
+Test status code PASSED! Fact received status code: 200
+Test required fields PASSED! Fact received required fields: ['msg']
+Test field value PASSED! Fact received field value: Address successfully updated
+Method GET before PUT
+URL for GET request: https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b4307367596b6f708cd705f24af9d661
+{'location': {'latitude': '-38.383494', 'longitude': '33.427362'}, 'accuracy': '50', 'name': 'Frontline house', 'phone_number': '(+91) 983 893 3937', 'address': '100 Lenina test PUT street, RU', 'types': 'shoe park,shop', 'website': 'http://google.com', 'language': 'French-IN'}
+Test status code PASSED! Fact received status code: 200
+Test required fields PASSED! Fact received required fields: ['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website', 'language']
+Test field value PASSED! Fact received field value: 100 Lenina test PUT street, RU
+Method DELETE
+URL для DELETE запроса: https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+{'status': 'OK'}
+Test status code PASSED! Fact received status code: 200
+Test required fields PASSED! Fact received required fields: ['status']
+Test field value PASSED! Fact received field value: OK
+Method GET after DELETE
+URL for GET request: https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b4307367596b6f708cd705f24af9d661
+{'msg': "Get operation failed, looks like place_id  doesn't exists"}
+Test status code PASSED! Fact received status code: 404
+Test required fields PASSED! Fact received required fields: ['msg']
+Test field value PASSED! Fact received field value: Get operation failed, looks like place_id  doesn't exists
+Test word in response PASSED! Fact received word in response: failed
+Test create new place completed (POST -> GET -> PUT -> GET -> DELETE -> GET)

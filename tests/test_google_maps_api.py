@@ -1,5 +1,6 @@
 import json
 
+import allure
 import pytest  # для запуска тестов
 import requests  # для отправки запросов
 from requests import Response  # для получения статус кода
@@ -9,10 +10,13 @@ from utils.api import Google_map_api  # импортируем модуль с �
 """
 This module contains tests for Google map API and extends all methods from utils/api.py module
 For run tests use command: pytest -v -s
+For run with allure report use command: pytest -m pytest --alluredir=test_results/ tests/test_google_maps_api.py
 """
 
 
+@allure.epic("Google map API. Create new location")
 class Test_google_maps_methods():  # тестирование методов Google map API, у класса нет атрибутов так как все методы статические
+    @allure.description("Test create new location, update and delete location")
     def test_create_new_place(self):
         """Sending POST request"""
         print("Method POST")
@@ -23,8 +27,8 @@ class Test_google_maps_methods():  # тестирование методов Goo
         CheckingResponses.check_status_code(result_post, 200)
         CheckingResponses.check_required_fields(result_post,
                                                 ["status", "place_id", "scope", "reference", "id"])
-        CheckingResponses.check_field_value(result_post,"status", "OK")
-        CheckingResponses.check_field_value(result_post,"scope", "APP")
+        CheckingResponses.check_field_value(result_post, "status", "OK")
+        CheckingResponses.check_field_value(result_post, "scope", "APP")
 
         """
         # token = json.loads(result_post.text)
@@ -40,13 +44,13 @@ class Test_google_maps_methods():  # тестирование методов Goo
         CheckingResponses.check_required_fields(result_get,
                                                 ["location", "accuracy", "name", "phone_number", "address", "types",
                                                  "website", "language"])
-        CheckingResponses.check_field_value(result_get,"accuracy", "50")
-        CheckingResponses.check_field_value(result_get,"name", "Frontline house")
-        CheckingResponses.check_field_value(result_get,"phone_number", "(+91) 983 893 3937")
-        CheckingResponses.check_field_value(result_get,"address", "29, side layout, cohen 09")
-        CheckingResponses.check_field_value(result_get,"types", "shoe park,shop")
-        CheckingResponses.check_field_value(result_get,"website", "http://google.com")
-        CheckingResponses.check_field_value(result_get,"language", "French-IN")
+        CheckingResponses.check_field_value(result_get, "accuracy", "50")
+        CheckingResponses.check_field_value(result_get, "name", "Frontline house")
+        CheckingResponses.check_field_value(result_get, "phone_number", "(+91) 983 893 3937")
+        CheckingResponses.check_field_value(result_get, "address", "29, side layout, cohen 09")
+        CheckingResponses.check_field_value(result_get, "types", "shoe park,shop")
+        CheckingResponses.check_field_value(result_get, "website", "http://google.com")
+        CheckingResponses.check_field_value(result_get, "language", "French-IN")
 
         """Sending PUT request"""
         print("Method PUT")
@@ -56,7 +60,7 @@ class Test_google_maps_methods():  # тестирование методов Goo
         CheckingResponses.check_status_code(result_put, 200)
         CheckingResponses.check_required_fields(result_put,
                                                 ["msg"])
-        CheckingResponses.check_field_value(result_put,"msg", "Address successfully updated")
+        CheckingResponses.check_field_value(result_put, "msg", "Address successfully updated")
 
         """Rechecking GET request after method PUT"""
         print("Method GET before PUT")
@@ -67,7 +71,7 @@ class Test_google_maps_methods():  # тестирование методов Goo
         CheckingResponses.check_required_fields(result_get,
                                                 ["location", "accuracy", "name", "phone_number", "address", "types",
                                                  "website", "language"])
-        CheckingResponses.check_field_value(result_get,"address", "100 Lenina test PUT street, RU")
+        CheckingResponses.check_field_value(result_get, "address", "100 Lenina test PUT street, RU")
 
         """Sending DELETE request"""
         print("Method DELETE")
@@ -77,7 +81,7 @@ class Test_google_maps_methods():  # тестирование методов Goo
         CheckingResponses.check_status_code(result_delete, 200)
         CheckingResponses.check_required_fields(result_delete,
                                                 ["status"])
-        CheckingResponses.check_field_value(result_delete,"status", "OK")
+        CheckingResponses.check_field_value(result_delete, "status", "OK")
 
         """Rechecking GET request after method DELETE"""
         print("Method GET after DELETE")
