@@ -1,6 +1,4 @@
 # Документация Google Map API
-![Google Maps](https://www.pngwing.com/en/free-png-btndi)
-
 ## Метод POST
 ### _Запрос:_
 * _Base URL: https://rahulshettyacademy.com_
