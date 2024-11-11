@@ -1,12 +1,13 @@
 from utils.http_all_methods import HttpAllMethods
 
-"""Методы для тестирования Google map API"""
+"""All methods for testing Google map API"""
 
 BASE_URL = "https://rahulshettyacademy.com" # для всех запросов
 KEY = "?key=qaclick123" # ключ для всех запросов
 
 class Google_map_api():
-    """Метод для создания новой локации"""
+
+    """This method creates new location, returns ID of created location"""
     @staticmethod
     def create_new_place():
         json_create_new_place = {
@@ -56,3 +57,16 @@ class Google_map_api():
         result_put = HttpAllMethods.put(put_url, json_update_new_place)
         print(result_put.text)
         return result_put
+
+    """Метод для удаления ранее созданной локации"""
+    @staticmethod
+    def delete_new_place(place_id):
+        delete_resources = "/maps/api/place/delete/json"
+        delete_url = BASE_URL + delete_resources + KEY
+        print("URL для DELETE запроса: " + delete_url)
+        json_delete_new_place = {
+            "place_id": place_id
+        }
+        result_delete = HttpAllMethods.delete(delete_url, json_delete_new_place)
+        print(result_delete.text)
+        return result_delete

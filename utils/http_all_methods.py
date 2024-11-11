@@ -1,7 +1,12 @@
 import requests
 
-"""Список HTTP методов для запросов"""
-"""GET, POST, PUT, PATCH, DELETE"""
+"""
+This module contains all custom HTTP methods: 
+GET, 
+POST, 
+PUT, 
+DELETE
+"""
 
 
 class HttpAllMethods:
@@ -26,11 +31,7 @@ class HttpAllMethods:
         return result
 
     @staticmethod
-    def delete(url):
-        result = requests.delete(url, headers=HttpAllMethods.headers, cookies=HttpAllMethods.cookies)
+    def delete(url, body):
+        result = requests.delete(url, json=body, headers=HttpAllMethods.headers, cookies=HttpAllMethods.cookies)
         return result
 
-    @staticmethod
-    def patch(url, body):  # обязательно передаем body
-        result = requests.patch(url, json=body, headers=HttpAllMethods.headers, cookies=HttpAllMethods.cookies)
-        return result
