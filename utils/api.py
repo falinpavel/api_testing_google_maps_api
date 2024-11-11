@@ -31,7 +31,7 @@ class Google_map_api():
         post_url = BASE_URL + post_resources + KEY
         print("URL for POST request: " + post_url)
         result_post = HttpAllMethods.post(post_url, json_create_new_place)
-        print(result_post.text)
+        # print(result_post.text)
         return result_post
 
     """Method for getting ID of created location (GET)"""
@@ -41,7 +41,7 @@ class Google_map_api():
         get_url = BASE_URL + get_resources + KEY + "&place_id=" + place_id
         print("URL for GET request: " + get_url)
         result_get = HttpAllMethods.get(get_url)
-        print(result_get.text)
+        # print(result_get.text)
         return result_get
 
     """Method for updating created location (PUT)"""
@@ -56,7 +56,7 @@ class Google_map_api():
             "key": "qaclick123"
         }
         result_put = HttpAllMethods.put(put_url, json_update_new_place)
-        print(result_put.text)
+        # print(result_put.text)
         return result_put
 
     """Method for deleting created location (DELETE)"""
@@ -69,5 +69,5 @@ class Google_map_api():
             "place_id": place_id
         }
         result_delete = HttpAllMethods.delete(delete_url, json_delete_new_place)
-        print(result_delete.text)
+        # print(result_delete.text)
         return result_delete

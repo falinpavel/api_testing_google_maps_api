@@ -1,4 +1,6 @@
 """All methods for checking responses"""
+import json
+
 from requests import Response
 
 
@@ -11,3 +13,24 @@ class CheckingResponses(): # класс для проверки статус к�
             print("Test status code PASSED! Fact received status code: " + str(response.status_code)) # то выводим в консоль, что тест PASSED
         else:
             print("Test status code FAILED! Fact received status code: " + str(response.status_code)) # иначе выводим в консоль, что тест FAILED
+
+    """Check required fields in response"""
+    @staticmethod
+    def check_required_fields(response: Response, expected_fields):
+        fields = json.loads(response.text)
+        assert list(fields) == expected_fields
+        if list(fields) == expected_fields: # если список полей совпадает с ожидаемым списком полей (в данном случае expected_fields), то выводим в консоль, что тест PASSED
+            print("Test required fields PASSED! Fact received required fields: " + str(expected_fields))
+        else: # иначе выводим в консоль, что тест FAILED
+            print("Test required fields FAILED! Fact received required fields: " + str(expected_fields))
+
+    """Check value in response fields"""
+    @staticmethod
+    def check_field_value(response: Response, exp_field_name, exp_field_value):
+        check_fields = response.json()
+        check_value = check_fields.get(exp_field_name)
+        assert check_value == exp_field_value
+        if check_value == exp_field_value: # если значение полей совпадает с ожидаемым значением, то выводим в консоль, что тест PASSED
+            print("Test field value PASSED! Fact received field value: " + str(exp_field_value))
+        else: # иначе выводим в консоль, что тест FAILED
+            print("Test field value FAILED! Fact received field value: " + str(exp_field_value))
