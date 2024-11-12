@@ -1,9 +1,10 @@
 # Документация Google Map API
-## Метод POST
-### _Запрос:_
-* _Base URL: https://rahulshettyacademy.com_
-* _Resource: /maps/api/place/add/json_
-* _Параметр для всех запросов: key =qaclick123_
+
+| Метод POST                                       |
+|--------------------------------------------------|
+| * _Base URL: https://rahulshettyacademy.com_     |
+| * _Resource: /maps/api/place/add/json_           |
+| * _Параметр для всех запросов: key =qaclick123_  |
 
 ### _Body:_
 ```json
@@ -35,10 +36,11 @@
 }
 ```
 
-## Метод GET
-* _Base URL: https://rahulshettyacademy.com_
-* _Resource: /maps/api/place/get/json_
-* _Параметр для запросов: key =qaclick123, place_id_
+| Метод GET                                             |
+|-------------------------------------------------------|
+| * _Base URL: https://rahulshettyacademy.com_          |
+| * _Resource: /maps/api/place/get/json_                |
+| * _Параметр для запросов: key =qaclick123, place_id_  |
 
 ### _Ответ (Статус: 200. Запрос прошел успешно):_
 ```json
@@ -64,11 +66,12 @@
 }
 ```
 
-## Метод PUT
-### _Запрос:_
-* _Base URL: https://rahulshettyacademy.com_
-* _Resource: /maps/api/place/update/json_
-* _Параметр для запросов: key =qaclick123_
+| Метод PUT                                        |
+|--------------------------------------------------|
+| * _Base URL: https://rahulshettyacademy.com_     |
+| * _Resource: /maps/api/place/update/json_        |
+| * _Параметр для запросов: key =qaclick123_       |
+
 ### _Body:_
 ```json
 {
@@ -90,11 +93,12 @@
 }
 ```
 
-## Метод DELETE
-### _Запрос:_
-* _Base URL: https://rahulshettyacademy.com_
-* _Resource: /maps/api/place/delete/json_
-* _Параметр для запросов: key =qaclick123_
+| Метод DELETE                                   |
+|------------------------------------------------|
+| * _Base URL: https://rahulshettyacademy.com_   |
+| * _Resource: /maps/api/place/delete/json_      |
+| * _Параметр для запросов: key =qaclick123_     |
+
 ### _Body:_
 ```json
 {
