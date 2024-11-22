@@ -4,7 +4,7 @@ import json
 from requests import Response
 
 
-class CheckingResponses(): # класс для проверки статус кода
+class CheckingResponses(): # класс для проверки ответа
     """Methods for checking status code for all requests"""
     @staticmethod
     def check_status_code(response: Response, status_code: int): # метод для проверки статус кода. В аргументах передаем response (из модуля requests) и status_code (из выбранного вами метода)
